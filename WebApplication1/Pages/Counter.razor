@@ -1,0 +1,29 @@
+﻿@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="DoLookup">Click me</button>
+@using SmartyStreets;
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    async Task DoLookup()
+    {
+        var smartyStreetsClient = new ClientBuilder(new SharedCredentials("108755236021746362", "localhost")).WithLicense(new List<string> { "us-autocomplete-pro-cloud" }).BuildUsAutocompleteProApiClient();
+        var lookup = new SmartyStreets.USAutocompleteProApi.Lookup("3101 Meadow");
+        lookup.MaxResults = 10;
+        await smartyStreetsClient.SendAsync(lookup);
+        var suggestions = lookup.Result;
+        foreach (var suggestion in suggestions)
+        {
+            Console.WriteLine(suggestion.Street);
+        }
+    }
+}

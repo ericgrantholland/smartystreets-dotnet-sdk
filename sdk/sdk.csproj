@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- in JetBrains Project Rider, use only netstandard2.0; it doesn't understand multiple target frameworks -->
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <AssemblyName>smartystreets-dotnet-sdk</AssemblyName>
+    <RootNamespace>SmartyStreets</RootNamespace>
+    <Company></Company>
+    <Product>SmartyStreets .NET 5 Blazor SDK</Product>
+    <Description>Unofficial SDK for accessing various SmartyStreets APIs, especially for use in Blazor WASM projects that don't support synchronous Send operations. Replaces the old WebRequest classes used in the original smarty-streets SDK with standard HttpClient calls.</Description>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Copyright></Copyright>
+    <PackageProjectUrl>https://github.com/smartystreets/smartystreets-dotnet-sdk</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/smartystreets/smartystreets-dotnet-sdk</RepositoryUrl>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>sdk.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>smartystreets-blazor-sdk</PackageId>
+    <Authors>DentistOfDetroit</Authors>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(CustomVersion)' != ''">
+    <Version>$(CustomVersion)</Version>
+    <AssemblyVersion>$(CustomVersion)</AssemblyVersion>
+    <FileVersion>$(CustomVersion)</FileVersion>
+  </PropertyGroup>
+</Project>
